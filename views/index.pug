@@ -1,0 +1,20 @@
+html
+  head
+    title Who is my representative?
+  body
+    h1 Search for reps now!
+
+    form(method='get' action='/')
+      select(name='type')
+        option(value='zip') Zip
+        option(value='name') Name
+        option(value='state') State
+      input(type='text' name='search')
+      button Submit
+
+    if reps
+      for rep in reps
+        ul
+          li
+            p #{rep.name} (#{rep.party}) -- #{rep.state}
+            p #{rep.phone} -- #{rep.office}
